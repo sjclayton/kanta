@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="padTexture" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A5175"/>
+      <stop offset="100%" stop-color="#142340"/>
+    </linearGradient>
+
+    <linearGradient id="rimTexture" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151C25"/>
+      <stop offset="25%" stop-color="#192129"/>
+      <stop offset="50%" stop-color="#1C242D"/>
+      <stop offset="75%" stop-color="#1F2731"/>
+      <stop offset="100%" stop-color="#222A35"/>
+    </linearGradient>
+
+    <linearGradient id="greenRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2A3545" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#2E3A4A" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#323F50" stop-opacity="0.35"/>
+    </linearGradient>
+
+    <linearGradient id="faceTexture" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#384E70"/>
+      <stop offset="100%" stop-color="#2A3E5C"/>
+    </linearGradient>
+
+    <linearGradient id="padEdge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2A42"/>
+      <stop offset="100%" stop-color="#0E1A2C"/>
+    </linearGradient>
+
+    <filter id="greenGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="padShadow" x="-15%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <filter id="keyInset" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Pad with shadow -->
+  <g filter="url(#padShadow)">
+    <rect x="32" y="32" width="192" height="192" rx="24" fill="url(#padTexture)"/>
+    <!-- Subtle top edge highlight -->
+    <rect x="33" y="33" width="190" height="190" rx="23" fill="none" stroke="#4A6585" stroke-width="0.5" opacity="0.2"/>
+  </g>
+
+  <defs>
+    <g id="key">
+      <rect width="40" height="40" rx="7" fill="url(#rimTexture)"/>
+      <rect x="4" y="4" width="32" height="32" rx="4" fill="url(#faceTexture)"/>
+    </g>
+  </defs>
+
+  <!-- Row 1 -->
+  <use href="#key" x="56" y="56" filter="url(#keyInset)"/>
+  <use href="#key" x="108" y="56" filter="url(#keyInset)"/>
+  <use href="#key" x="160" y="56" filter="url(#keyInset)"/>
+
+  <!-- Row 2 -->
+  <use href="#key" x="56" y="108" filter="url(#keyInset)"/>
+  <use href="#key" x="108" y="108" filter="url(#keyInset)"/>
+  <use href="#key" x="160" y="108" filter="url(#keyInset)"/>
+
+  <!-- Row 3 -->
+  <use href="#key" x="56" y="160" filter="url(#keyInset)"/>
+
+  <!-- GREEN key -->
+  <g transform="translate(108,160)" filter="url(#greenGlow)">
+    <rect width="40" height="40" rx="7" fill="url(#greenRim)"/>
+    <rect x="2" y="2" width="36" height="36" rx="5" fill="#5FDC34"/>
+  </g>
+
+  <use href="#key" x="160" y="160" filter="url(#keyInset)"/>
+</svg>
