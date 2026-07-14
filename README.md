@@ -1,5 +1,10 @@
 # kanta
 
+> [!WARNING]
+> Under active development — not yet a shippable MVP. Expect interface
+> breakage, missing features, and undocumented behavior. Track progress at
+> [sjclayton/kanta#1](https://github.com/sjclayton/kanta/issues/1).
+
 Visual layout / settings editor for [Kanata](https://github.com/jtroo/kanata).
 
 Linux day-one. MVP target: open a `.kbd` file, edit `defsrc` / `deflayer` / `defalias` / `defcfg`
